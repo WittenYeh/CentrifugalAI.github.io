@@ -1,0 +1,408 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Report of Lab1——Internet Information Acquisition and Analysis | 离心的书</title><meta name="keywords" content="DS100"><meta name="author" content="离心"><meta name="copyright" content="离心"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Report of Lab1——Internet Information Acquisition and Analysis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Report of Lab1——Internet Information Acquisition and Analysis">
+<meta property="og:url" content="https://centrifugalai.github.io/2022/08/06/ds100lab1/index.html">
+<meta property="og:site_name" content="离心的书">
+<meta property="og:description" content="Report of Lab1——Internet Information Acquisition and Analysis">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2022/08/06/vuTX6A.png">
+<meta property="article:published_time" content="2022-08-06T14:38:49.000Z">
+<meta property="article:modified_time" content="2023-03-20T15:12:53.824Z">
+<meta property="article:author" content="离心">
+<meta property="article:tag" content="DS100">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2022/08/06/vuTX6A.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://centrifugalai.github.io/2022/08/06/ds100lab1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Report of Lab1——Internet Information Acquisition and Analysis',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-03-20 23:12:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom/custom.css"><link rel="stylesheet" href="/css/categoryBar.css"><link rel="stylesheet" href="/css/MainColor.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s1.ax1x.com/2022/08/06/vuHnKA.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 学习</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E7%AB%9E%E8%B5%9B%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-music"></i><span> 竞赛笔记</span></a></li><li><a class="site-page child" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-video"></i><span> 课程笔记</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s1.ax1x.com/2022/08/06/vuTX6A.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">离心的书</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 学习</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E7%AB%9E%E8%B5%9B%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-music"></i><span> 竞赛笔记</span></a></li><li><a class="site-page child" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-video"></i><span> 课程笔记</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Report of Lab1——Internet Information Acquisition and Analysis</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-06T14:38:49.000Z" title="发表于 2022-08-06 22:38:49">2022-08-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-20T15:12:53.824Z" title="更新于 2023-03-20 23:12:53">2023-03-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AB%9E%E8%B5%9B%E7%AC%94%E8%AE%B0/">竞赛笔记</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AB%9E%E8%B5%9B%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Report of Lab1——Internet Information Acquisition and Analysis"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><font face="华文中宋" font size = 4>
+
+<center>
+
+<img src = ./images/ds100.png width = 70%>
+
+</center>
+
+# (Ⅰ) Overview and Summary
+
+## Experiment Purpose
+
+The purpose of this lab is grasping the basic use of crawler tools and comparing the effiency of them to deepen the common progress of data science.
+
+## Experiment Work Flow
+
+<center><img src = ./images/1.png width = 60%></center>
+
+- Crawing Urls : **Get urls from directory pages**, and store these urls in files.
+- Visiting Urls & Downloading HTML Files : Visit each of these urls, then **automatically download all annoncement pages**.
+- Parsing HTML Files : Parse downloaded HTML files **by 5 different ways** and **compare their effeciency**.
+- Generating Word Cloud : According to the number of all words counted by **jieba tool**, create a word cloud.
+
+## Programes List
+
+The programes is under the path `./code`. The function of these programes are listing below:
+
+- `load_page.py` : Download `HTML` files of directory pages.
+- `parse_page.py` : Parse the `HTML` files of directory pages to get urls of all anouncement pages of enterprices. By the way, fetch other useful information, such as title, time, enterprise name and type of these annoucement.
+- `load_content.py` : By visiting the urls of anouncement pages, download `HTML` files of these anouncements.
+- `parse_content.py` : Parse `HTML` files loaded by `load_content.py`, to fetch the main text part of all these announcement.
+- `aggregate.py` : Aggregate information by above programes, generate a complete table of all required information : title, time, enterprise name, type and the main text of the announcement.
+- `wordcount.py` : Use `jieba` library to split sentences in all anouncement to words, then count the number of each word. Finally, rank all words by their amount.
+- `cloud.py` : Call `wordcloud` function to draw a word cloud word frequency.
+
+## Data Files List
+
+- `./page/*` : All `HTML` files crawled from contents pages.
+- `./content/*` : All `HTML` files crawled from announcement pages.
+- `data.csv` : Information table generated by `aggregate.py`
+- `word_rank.csv` : The result of ranking all words
+- `wash_word_rank.csv` : Based on `word_rank.csv`, wash out dirty data.
+
+# (Ⅱ) Module $\Alpha$: Web Crawler Based on Selenium
+
+## (2.0) Step 1 : Crawling Urls of All Anouncement Pages
+
+## Save Directory Pages
+
+Observe the strucure of the website, we can find a page where lots of links of announcements are aggregated here:
+
+![](images/2.png)
+
+There are about 20 announcement links in each directory page. And the URLs of these directory pages is like below: 
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://vip.stock.finance.sina.com.cn/corp/view/vCB_BulletinGather.php?page_index=1</span><br></pre></td></tr></table></figure>
+
+We can deduce that the field `page_index` which is explicitly specified in the end of URL indicate the page index of all directory pages. With this feature, we can easily visit all directory pages by simply changing the value of field `page_index`. This idea can be translated into the following python code:
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">page_indexes = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(page_count + <span class="number">1</span>) <span class="keyword">if</span> i != <span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> page_indexes:</span><br><span class="line">    save_single_page(index, driver)</span><br></pre></td></tr></table></figure>
+
+## Obtain Infomation from Saved Directory Pages
+
+Here we use regular expression to parse all directory pages to get information we need.
+
+Actually, the main work of this step is to get URLs of all announcement pages. However, there are something valuable information on this directory page, such as time, title and type of announcement. So I decide to crawl these informaition by the way. The core code of this step is shown below:
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">page_indexes = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(page_count + <span class="number">1</span>) <span class="keyword">if</span> i != <span class="number">0</span>]</span><br><span class="line">url_pattern = re.<span class="built_in">compile</span>(<span class="string">r&quot;\&quot;/corp/view/vCB_AllBulletinDetail.php(.*?)\&quot;&quot;</span>) <span class="comment"># non-greedy method</span></span><br><span class="line">type_pattern = re.<span class="built_in">compile</span>(<span class="string">r&quot;&lt;td width=\&quot;130\&quot;&gt;(.*?)&lt;/td&gt;&quot;</span>)</span><br><span class="line">time_pattern = re.<span class="built_in">compile</span>(<span class="string">r&quot;&lt;td width=\&quot;80\&quot;&gt;(.*?)&lt;/td&gt;&quot;</span>)</span><br><span class="line">title_pattern = re.<span class="built_in">compile</span>(<span class="string">r&quot;(\d+)\&quot; target=\&quot;_blank\&quot;&gt;(.*?)&lt;/a&gt;&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> page_indexes:</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./page/&#x27;</span> + <span class="built_in">str</span>(index) + <span class="string">&#x27;.html&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">        page_content = file.read()</span><br><span class="line">        urls, types, times, id_titles = (pattern.findall(page_content) <span class="keyword">for</span> pattern <span class="keyword">in</span> [url_pattern, type_pattern, time_pattern, title_pattern])</span><br><span class="line">        url_list, type_list, time_list, id_list, title_list = url_list+urls, type_list+types, time_list+times, id_list+[id_tilte[<span class="number">0</span>] <span class="keyword">for</span> id_tilte <span class="keyword">in</span> id_titles], title_list+[id_tilte[<span class="number">1</span>] <span class="keyword">for</span> id_tilte <span class="keyword">in</span> id_titles]</span><br><span class="line">        file.close()</span><br></pre></td></tr></table></figure>
+
+## (2.1) Step 2 : Visit These Urls and Download HTML Files 
+
+## Detailed Process
+
+With above work, we have collected all URLs of announcement pages. So now we just need to visit each announcement page with its URL and download corresponding HTML file. 
+
+At this point, all the work of crawling data online has been completed. Worth to mention, the library used to crawling data in this lab is `selenium`. The process of using `selenium` to crawl data can be divide into following three steps:
+
+### First : Download a Web Driver 
+
+In this lab, I choose `msedgedriver.exe` as my web driver because I'm familiar with `Edge` browser and I like `Microsoft`.
+
+### Second : Initialize a Web Driver Instance
+
+To initialize a web driver, we just need simply specify the pathes of executable files of both `Edge` browser and its driver. To make selenium work as we expect, we may need to initialize some options. The function `initDriver` shown below is used to complete these works.
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">init_driver</span>():</span><br><span class="line">    options = EdgeOptions()</span><br><span class="line">    options.use_chromium = <span class="literal">True</span></span><br><span class="line">    options.add_experimental_option(<span class="string">&quot;excludeSwitches&quot;</span>, [<span class="string">&#x27;enable-automation&#x27;</span>, <span class="string">&#x27;enable-logging&#x27;</span>])</span><br><span class="line">    options.binary_location = <span class="string">r&quot;C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe&quot;</span></span><br><span class="line">    driver = Edge(options=options, executable_path=<span class="string">&#x27;C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedgedriver.exe&#x27;</span>)</span><br><span class="line">    driver.implicitly_wait(<span class="number">10</span>)</span><br><span class="line">    <span class="keyword">return</span> driver</span><br></pre></td></tr></table></figure>
+
+It's worth to mention that the code `driver.implicitly_wait(10)` has 2 advantages compared to `sleep` function:
+
+- We don't need to explicitly use `sleep` to force the driver to wait for a page's response when we try to download HTML files. Instead, a single line `driver.implicitly_wait(10)` saves code for us.
+- `sleep` function forces the process to sleep for a fixed amount of time, while `implicitly_wait` method uses a flexible way to determine the sleep time. 
+
+## Bug Encountered
+
+A bug happen during the above process, the URLs obetained by parsing HTML files of directory pages were like below at first:
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?CompanyCode=80055229<span class="symbol">&amp;amp;</span>gather=1<span class="symbol">&amp;amp;</span>id=8893871</span><br></pre></td></tr></table></figure>
+
+The web driver always get nothing by visiting this URL. By comparing the URL of origin page and the above URL, I found that all `&` symbols was transformed to `&amp;` strings. This transformation might be executed by web driver. It automatically deal with some special symbols. In order to visit correct website, we can replace `&amp;` with `&` in these URLs. Practice has proved that the trick works.
+
+## Advantage and Limitation
+
+### Advantage
+
+`selenium` library is a powerful web crawling tool. It can be regarded as an automatic clicker. This feature allows the crawler to act like a real person, so that it can decrease the risk of being forbidden by crawled website.
+
+In my experiment, the crawling success rate is 7576/7584, which is a considerable result.
+
+### Limitation
+
+The cost of increased crawling success rate is speed. Due to cyclical sleep operation and low efficiency of visiting website process, the total cost of time is not optimistic but still acceptable. So the experiment chooses `selenium` as crawling tool finally.
+
+# (Ⅲ) Module $\Beta$ : HTML Files Parser
+
+## Detail Process
+
+The main task of this module is to get the main text of announcement, which is a parsing task with lots of work. Therefore, we set up a test point here to compare the efficiency of different HTML parsers. **Here I have chosen the following five parsers**: Regular Expression, HTML Parser, LXML Parser, `html5lib` Parser, `xpath` Parser.
+
+The parsing operation of these five parsers are aggregated into function `get_main_text`. We can choose one of these parsers by specifying argument `method`. 
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get main text in announcement</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_main_text</span>(<span class="params">filename, method : <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;r+&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">        html_content = file.read()</span><br><span class="line">        file.close()</span><br><span class="line">    <span class="keyword">if</span> method == <span class="string">&#x27;re&#x27;</span>:        <span class="comment"># re to parse html file</span></span><br><span class="line">        text_pattern = re.<span class="built_in">compile</span>(<span class="string">r&#x27;&lt;div id=\&quot;content\&quot;&gt;([\s\S]*?)&lt;div style=\&quot;clear:both\&quot;&gt;&lt;/div&gt;&#x27;</span>)</span><br><span class="line">        res = text_pattern.findall(html_content)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(res) == <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;missing file &#x27;</span> + filename)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;null&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> wash_html(res[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">elif</span> method == <span class="string">&#x27;html.parser&#x27;</span> <span class="keyword">or</span> method == <span class="string">&#x27;lxml&#x27;</span> <span class="keyword">or</span> method == <span class="string">&#x27;html5lib&#x27;</span>: <span class="comment"># html parser of bs4</span></span><br><span class="line">        soup = BeautifulSoup(html_content, method)</span><br><span class="line">        res = soup.find_all(attrs=&#123;<span class="string">&#x27;id&#x27;</span> : <span class="string">&#x27;content&#x27;</span>&#125;)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(res) == <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;missing file &#x27;</span> + filename)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;null&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> wash_html(<span class="built_in">str</span>(res[<span class="number">0</span>]))</span><br><span class="line">    <span class="keyword">elif</span> method == <span class="string">&#x27;xpath&#x27;</span> :  </span><br><span class="line">        html = etree.HTML(html_content, parser=etree.HTMLParser(encoding=<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        target_info = html.xpath(<span class="string">&quot;/div[contains(@id=&#x27;content&#x27;)]/text()&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> target_info</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+## Bug Encountered
+
+When I tried to use regular expression to match the main text, it always found nothing. And the regular expression I use at that time is `r'<div id=\"content\">(.*?)<div style=\"clear:both\"></div>'`.
+
+It looks reasonable and workable, however, quite the opposite is true. It turns out that the regular expression `.` can match all symbols expect `\n` (line break). The workable alternative way is use `[\s\S]` to match all symbols, because the union of character set and non-character set is universal set. In a similar way, replacing it with `[\d\D]` should be workable too.
+
+Last, the main text obtained by these ways will have HTML tags. Another function to clean these tags is required. 
+
+## Efficiency Comparison
+
+Here I display the effiency test result of each parser :
+
+- `html.parser` : 8 minutes & 38.6 seconds
+
+<center><img src = images/3.png width = 90%></center>
+
+- `xpath` : 15.9 seconds 
+
+<center><img src = images/4.png width = 90%></center>
+
+- `lxml` : 5 minutes & 4.2 seconds
+
+<center><img src = images/5.png width = 90%></center>
+
+- `re` (regular expression) : 6 minutes & 16.7 seconds
+
+<center><img src = images/6.png width = 90%></center>
+
+- `html5lib` : 11 minutes & 13.9 seconds
+
+<center><img src = images/7.png width = 90%></center>
+
+In conclusion, the speed rank should be: `xpath` >> `lxml` > `re` >  `html.parser` > `html5lib`. `xpath`'s performance is the most remarkable.
+
+# (IV) Module $\Gamma$ : Word Cloud Generator
+
+## Spliting Text to Words Based on `jieba` Library
+
+In order to divide words more precisely, I import `jieba` library to complete the task: 
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">words = jieba.lcut(<span class="built_in">str</span>(text), cut_all=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+`jieba.lcut` receive a string as input, return a `list` whose type is `string`. To get the frequency of all words, we just need to traverse the list and create a table to record occurrence number of all words:
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">    <span class="keyword">if</span> word <span class="keyword">in</span> word_with_count.index:</span><br><span class="line">        word_with_count[word] = word_with_count[word] + <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        word_with_count[word] = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+## Creating Word Cloud Based on `wordcloud` Library
+
+Before creating word cloud, there is still an important job to do. Because the result of `jieba` has some meaningless words and symbols, it is not reasonable to create a word cloud with these meaningless words. Therefore, I make two rules to select qualified words to participate in the creation of word cloud:
+
+- The selected word should contain Chinese only. 
+- The length of selected word should be more than 2. 
+
+The first rule avoids that some meaningless symbols are selected. The second rule aims to exclude some auxiliary word like "的", "地", "是"......
+
+The process of using library `wordcloud` to generate word cloud can be divided into following three steps:
+
+- Transform the data structure of word frequency to a dictionary whose key is a string of word and value is corresponding frequency.
+
+- Initialize a `WordCloud` object and specify its attributes.
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wc = WordCloud(font_path=<span class="string">&#x27;STZHONGS.ttf&#x27;</span>, max_words=max_word_count, width=<span class="number">3000</span>, height=<span class="number">500</span>, </span><br><span class="line">               mask=np.array(Image.<span class="built_in">open</span>(<span class="string">&quot;mask.png&quot;</span>)), background_color=<span class="string">&#x27;white&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+> Bug Tip : if the language is Chinese and user don't explicitly specify a path of font, the generated word cloud will fail to display.
+
+- Call `generate_from_frequencies` method whose input is the dictionary structure we create in step one to create a word cloud.
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">word_cloud = wc.generate_from_frequencies(dict_for_draw)</span><br></pre></td></tr></table></figure>
+
+Finally, the word cloud image is shown below and you can find a clearer version below the path `/images/word_cloud.png`
+
+<center><img src = ./images/ds100.png width = 100%></center>
+
+</font>
+
+<font face = "Bradley Hand ITC"><center>
+
+# End of Report;$\;\;$Thanks for Reading!
+# Author : Ye Weitang;$\;\;$Time : 2023/3/16
+
+</center></font>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://centrifugalai.github.io">离心</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://centrifugalai.github.io/2022/08/06/ds100lab1/">https://centrifugalai.github.io/2022/08/06/ds100lab1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://centrifugalai.github.io" target="_blank">离心的书</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/DS100/">DS100</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2022/08/06/vuTX6A.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2022/08/06/cAHP%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/"><img class="prev-cover" src="https://s1.ax1x.com/2022/08/06/vuTX6A.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">数学建模竞赛 AHP 层次分析法</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s1.ax1x.com/2022/08/06/vuHnKA.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">离心</div><div class="author-info__description">人民大学图灵班某 21 级本科生</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/CentrifugalAI"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://blog.csdn.net/weixin_60491948?spm=1010.2135.3001.5343" target="_blank" title="CSDN"><i class="fab fa-cuttlefish"></i></a><a class="social-icon" href="https://github.com/CentrifugalAI" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2021201613@ruc.edu.cn" target="_blank" title="E-Mail"><i class="fab fa-envelope"></i></a><a class="social-icon" href="https://www.zhihu.com/people/chi-xin-5-10" target="_blank" title="ZhiHu"><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这个网站用来记录我从大二起上过的所有专业课和比较硬核的选修课，随时弃坑.jpg（雾）；入坑的理由来源于据称人类最好的学习方法——费曼学习法：输出是巩固输入的最佳方法。由于大一暑假才开始入坑写博客，so 大一的内容就不包含进去（大一的学习内容基本也只有初级数学课和编程基础）；附：本人 RUC 图灵班地下室水平，所以谬误难免。博客中误区欢迎交流，请多指教！</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/02/17/c%E7%BC%96%E5%8E%9F1%E5%82%A8%E8%AE%BA/" title="绪论：编译原理概论"><img src="https://s1.ax1x.com/2022/09/11/vOyv79.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="绪论：编译原理概论"/></a><div class="content"><a class="title" href="/2023/02/17/c%E7%BC%96%E5%8E%9F1%E5%82%A8%E8%AE%BA/" title="绪论：编译原理概论">绪论：编译原理概论</a><time datetime="2023-02-17T12:38:49.000Z" title="发表于 2023-02-17 20:38:49">2023-02-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/09/c%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95/" title="粒子群优化算法原理与代码实现"><img src="https://s1.ax1x.com/2022/08/06/vuTX6A.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="粒子群优化算法原理与代码实现"/></a><div class="content"><a class="title" href="/2023/02/09/c%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95/" title="粒子群优化算法原理与代码实现">粒子群优化算法原理与代码实现</a><time datetime="2023-02-09T05:38:49.000Z" title="发表于 2023-02-09 13:38:49">2023-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/08/c%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95/" title="从蚁群算法到可进化高阶蚁群算法"><img src="https://s1.ax1x.com/2022/08/06/vuTX6A.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从蚁群算法到可进化高阶蚁群算法"/></a><div class="content"><a class="title" href="/2023/02/08/c%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95/" title="从蚁群算法到可进化高阶蚁群算法">从蚁群算法到可进化高阶蚁群算法</a><time datetime="2023-02-08T05:38:49.000Z" title="发表于 2023-02-08 13:38:49">2023-02-08</time></div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient( 135deg,"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 离心</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script src="/js/categoryBar.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.7" zIndex="-1" mobile="false" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":225,"height":450},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
